@@ -167,7 +167,10 @@ exports.gameAdd_post = [
     .trim()
     .isLength({ min: 1 })
     .escape(),
-  body("price", "must be number").not().isEmpty().isNumeric(),
+  body("price", "must be number and can't be empty")
+    .not()
+    .isEmpty()
+    .isNumeric(),
   async (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {

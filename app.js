@@ -8,7 +8,7 @@ const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 mongoose.set("strictPopulate", false);
 const mongoDB = process.env.MONGO_ADDRESS;
-console.log(mongoDB);
+
 const main = async () => {
   await mongoose.connect(mongoDB);
 };
