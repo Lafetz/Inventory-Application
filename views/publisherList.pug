@@ -1,0 +1,5 @@
+extends layout 
+block content 
+ each publisher in publishers 
+  div 
+   a(href=`/publishers/${publisher.id}`) #{publisher.name} 

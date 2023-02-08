@@ -1,0 +1,6 @@
+extends layout 
+block content 
+ form(action="#" method="post") 
+  input(type="text" name='name' value=publisher.name)
+  button Edit 
+ a(href=`${publisher.id}/delete`) Remove  

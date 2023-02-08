@@ -1,0 +1,38 @@
+extends layout 
+block content
+ form(action=`#`, method="post") 
+  div
+   label title 
+    input(type="text" name='title' value=game.title )
+  div  
+   label description 
+    input(type="text" name='description' value=game.description)
+  div  
+   each genre in genres 
+    if(game.genre.some(x=> x.id===genre.id))
+     label #{genre.name}
+      input(type="checkbox" name='genre' value=genre.id checked)
+    else
+     label #{genre.name}
+      input(type="checkbox" name='genre' value=genre.id )
+  div   
+   label Publisher 
+    select(name="publisher")
+     each publisher in publishers 
+      if (publisher.id==game.publisher.id)
+        option(value=publisher.id selected) #{publisher.name}
+      else
+       option(value=publisher.id ) #{publisher.name}
+  div    
+   label price
+    input(type="number" name='price' value=game.price)
+  div 
+   label Stock
+    input(type="number" name='stock' value=game.stock)
+  button Update 
+ if errors
+    ul
+      for error in errors
+        li!= error.msg
+
+ 

@@ -1,0 +1,13 @@
+extends layout
+
+block content
+ div   
+  h1 #{gameDetail.title}
+  p=gameDetail.description 
+  each genre in gameDetail.genre 
+   p=genre.name 
+  a(href=`/publisher/${gameDetail.publisher.id}`) #{gameDetail.publisher.name}
+  p=gameDetail.price 
+  p=gameDetail.stock 
+  a(href=`${gameDetail.id}/update`) update
+  a(href=`${gameDetail.id}/delete`) Remove

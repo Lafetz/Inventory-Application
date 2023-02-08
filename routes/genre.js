@@ -1,0 +1,10 @@
+const generController = require("../controllers/genreController");
+const express = require("express");
+const router = express.Router();
+router.get("/", generController.list);
+router.post("/add", generController.genre_post);
+router.get("/add", generController.genre_get);
+router.get("/:id", generController.main_get);
+router.post("/:id", generController.main_post);
+router.get("/:id/delete", generController.main_remove);
+module.exports = router;

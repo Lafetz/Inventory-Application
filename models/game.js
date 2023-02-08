@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 const gameSchema = new Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
-  genre: [{ type: Schema.Types.ObjectId }],
-  publisher: { type: Schema.Types.ObjectId, required: true },
+  genre: [{ type: Schema.Types.ObjectId, ref: "Genre" }],
+  publisher: { type: Schema.Types.ObjectId, ref: "Publisher", required: true },
   price: { type: Number, required: true },
   stock: { type: Number, required: true },
 });
